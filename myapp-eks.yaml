@@ -1,0 +1,18 @@
+apiversion: eksctl.io/valpaha5
+kind: ClusterConfig
+metadata:
+  name: myapp-eks
+  region: us-east-1
+nodegroup:
+- name: myapp-eks-worker
+  minsize: 1
+  maxsize: 2
+  instanceType: t2.micro
+  privateNetworking: true
+  ami: ami-0dc7713312a7ec987
+  iam:
+    withAddonPolicies:
+      autoscaler: true
+  ssh:
+    allow: true
+    pulbicKeyPath: ~/.ssh/id_rsa.pub
